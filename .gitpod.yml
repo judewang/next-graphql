@@ -5,12 +5,18 @@ tasks:
 github:
   prebuilds:
     master: true
-    branches: true
+    branches: false
     pullRequests: true
     pullRequestsFromForks: false
     addCheck: false
     addComment: false
     addBadge: true
+
+vscode:
+  extensions:
+    - vivaxy.vscode-conventional-commits
+    - lokalise.i18n-ally
+    - tabnine.tabnine-vscode
 
 ports:
   - port: 3000

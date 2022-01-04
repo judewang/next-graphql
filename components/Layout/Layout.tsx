@@ -12,7 +12,11 @@ export const Layout = (props: Props) => {
   return (
     <>
       <DefaultMeta />
-      <NextNprogress color={theme.colors.primary} height={1} />
+      <NextNprogress
+        color={theme.colors.primary}
+        height={1}
+        options={{ showSpinner: false }}
+      />
       {props.children}
     </>
   );
