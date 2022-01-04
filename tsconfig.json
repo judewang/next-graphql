@@ -1,7 +1,11 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
@@ -14,18 +18,39 @@
     "isolatedModules": true,
     "incremental": true,
     "jsx": "preserve",
-    "jsxImportSource": "@theme-ui/core",
+    "jsxImportSource": "theme-ui",
     "baseUrl": ".",
     "paths": {
-      "@/components/*": ["components/*"],
-      "@/components": ["components/index"],
-      "@/hooks/*": ["hooks/*"],
-      "@/hooks": ["hooks/index"],
-      "@/lib/*": ["lib/*"],
-      "@/images/*": ["public/images/*"],
-      "@/types/*": ["types/*.d"]
+      "@/components/*": [
+        "components/*"
+      ],
+      "@/components": [
+        "components/index"
+      ],
+      "@/hooks/*": [
+        "hooks/*"
+      ],
+      "@/hooks": [
+        "hooks/index"
+      ],
+      "@/lib/*": [
+        "lib/*"
+      ],
+      "@/images/*": [
+        "public/images/*"
+      ],
+      "@/types/*": [
+        "types/*.d"
+      ]
     }
   },
-  "include": ["next-env.d.ts", "**/*.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules"]
+  "include": [
+    "next-env.d.ts",
+    "**/*.d.ts",
+    "**/*.ts",
+    "**/*.tsx"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

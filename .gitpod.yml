@@ -17,6 +17,7 @@ vscode:
     - vivaxy.vscode-conventional-commits
     - lokalise.i18n-ally
     - tabnine.tabnine-vscode
+    - sonarsource.sonarlint-vscode
 
 ports:
   - port: 3000
