@@ -1,0 +1,36 @@
+on:
+  push:
+    branches:
+      - master
+name: release-please
+jobs:
+  release-please:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: GoogleCloudPlatform/release-please-action@v2
+        id: release
+        with:
+          release-type: node
+          changelog-types: '[{"type":"build","section":"Build","hidden":false},{"type":"chore","section":"Chores","hidden":false},{"type":"ci","section":"CI/CD","hidden":false},{"type":"docs","section":"Docs","hidden":false},{"type":"feat","section":"Features","hidden":false},{"type":"fix","section":"Bug Fixes","hidden":false},{"type":"perf","section":"Performance","hidden":false},{"type":"refactor","section":"Refactor","hidden":false},{"type":"style","section":"Code Style","hidden":false},{"type":"test","section":"tests","hidden":false}]'
+      - uses: actions/checkout@v2
+        if: ${{ steps.release.outputs.release_created }}
+      - name: Get latest release
+        id: get_latest_release
+        uses: joutvhu/get-release@v1
+        with:
+          latest: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        if: ${{ steps.release.outputs.release_created }}
+      # - name: Send notification
+      #   uses: appleboy/telegram-action@master
+      #   with:
+      #     to: ${{ secrets.TELEGRAM_TO }}
+      #     token: ${{ secrets.TELEGRAM_TOKEN }}
+      #     format: markdown
+      #     message: |
+      #       🎉 New Release 🎉
+      #       Version: ${{ steps.get_latest_release.outputs.tag_name }}
+      #       Release notes: ${{ steps.get_latest_release.outputs.html_url }}
+      #       Preview: ${{ secrets.PREVIEW_URL }}
+      #   if: ${{ steps.release.outputs.release_created }}
