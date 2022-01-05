@@ -1,0 +1,8 @@
+schema: ${NEXT_PUBLIC_API_URL}
+documents: 'graphql/*.graphql'
+generates:
+  graphql-fetcher.ts:
+    plugins:
+      - 'typescript'
+      - 'typescript-operations'
+      - 'typescript-graphql-request'

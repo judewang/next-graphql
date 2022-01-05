@@ -43,3 +43,4 @@ ui-debug.log
 TODO
 *.todo
 .vscode/*
+graphql-fetcher.ts
