@@ -1,5 +1,4 @@
 import { ThemeUIContextValue, Theme, useThemeUI } from '@theme-ui/core';
-import { rgba } from 'polished';
 
 const makeTheme = <T extends Theme>(t: T) => t;
 
@@ -30,6 +29,7 @@ export const theme = makeTheme({
     //   },
     // },
   },
+  breakpoints: ['768px', '1024px', '1440px'],
   fonts: {
     body: '"Noto Sans TC", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif',
     heading: 'inherit',
@@ -45,37 +45,48 @@ export const theme = makeTheme({
     heading: 1.125,
   },
   fontSizes: [12, 14, 16, 18, 24, 32, 36, 48],
-  radii: {
-    small: 4,
-    medium: 8,
-    large: 12,
-  },
-  shadows: {
-    darkGlow: `0 0 6px ${rgba('#374968', 0.52)}`,
-    lightGlow: `1px 1px 6px rgba(255, 255, 255, 0.7), -1px -1px 6px rgba(255, 255, 255, 0.7)`,
-    lightBoxGlow: `0 0 10px 2px rgba(255, 255, 255, 0.5)`,
-    textDrop: `1px 2px 3px rgba(0, 0, 0, .69)`,
-    textAura: `0 0 13px rgba(255,255,255, 0.35)`,
-    moreLightGlow: `1px 1px 6px white, -1px -1px 6px white, 1px -1px 6px white, -1px 1px 6px white`,
-  },
   sizes: {
     icon: 20,
     container: 936,
   },
   space: [0, 4, 8, 16, 24, 32, 48, 64],
+  radii: {
+    small: 4,
+    medium: 8,
+    large: 12,
+  },
   zIndices: {
-    cover: 4,
-    nav: 3,
-    header: 2,
+    dialog: 30,
+    header: 20,
+    cover: 10,
     base: 0,
     hidden: -1,
   },
   transitions: {
-    base: 'all .25s ease',
+    base: 'all .25s ease-in-out',
+  },
+  variants: {
+    absoluteCenter: {
+      position: 'absolute',
+      top: '50%',
+      left: '50%',
+      transform: 'translate(-50%, -50%)',
+    },
+    dot: {
+      bg: 'currentColor',
+      size: 12,
+      borderRadius: '50%',
+    },
+  },
+  text: {
+    heading: {
+      fontWeight: 'heading',
+    },
   },
   layout: {
     container: {
       mx: 'auto',
+      px: [20, 40, 0],
       width: '100%',
     },
   },
@@ -85,15 +96,26 @@ export const theme = makeTheme({
     },
   },
   buttons: {
-    light: {
-      bg: 'white',
-      color: 'body',
-      boxShadow: 'lightBoxGlow',
+    reset: {
+      bg: 'transparent',
+      p: 0,
+      fontFamily: 'body',
+      transition: 'base',
+      cursor: 'pointer',
+      borderRadius: 0,
+      color: 'currentColor',
+      textAlign: 'left',
+      '&:hover': {
+        color: 'primary',
+      },
+    },
+    link: {
+      variant: 'buttons.reset',
+      textDecoration: 'underline',
     },
     icon: {
       size: 'icon',
-      position: 'relative',
-      overflow: 'visible',
+      p: 0,
       cursor: 'pointer',
       transition: 'base',
       '@media (hover)': {
@@ -103,91 +125,39 @@ export const theme = makeTheme({
       },
     },
   },
-  variants: {
-    absoluteCenter: {
-      position: 'absolute',
-      top: '50%',
-      left: '50%',
-      transform: 'translate(-50%, -50%)',
-    },
-    darkDropShadow: {
-      filter: `drop-shadow(0 0 13px ${rgba('#374968', 0.35)})`,
-    },
-    lightDropShadow: {
-      filter: `drop-shadow(0 0 13px rgba(255, 255, 255, 0.4))`,
-    },
-    shareButton: {
-      appearance: 'none',
-      border: 0,
-      boxShadow: 'none',
-      padding: 0,
-      margin: 0,
-      color: 'white',
-      whiteSpace: 'nowrap',
-      pr: 2,
-      fontSize: 0,
-      borderRadius: 'small',
-      cursor: 'pointer',
-      textDecoration: 'none',
-    },
-    shareButtonContainer: {
-      gridTemplateColumns: 'auto auto',
-      alignItems: 'center',
-      columnGap: 0,
-    },
-  },
-  // forms: {
-  // checkbox: {
-  //   color: 'white',
-  //   'input:checked~&': {
-  //     color: 'white',
-  //   },
-  //   'input:focus~&': {
-  //     bg: 'transparent',
-  //     color: 'white',
-  //   },
-  // },
-  // input: {
-  //   outline: 0,
-  //   py: '.66em',
-  //   color: 'white',
-  //   bg: 'rgba(255,255,255, 0.2)',
-  //   borderRadius: ['medium', null, 'large'],
-  //   boxShadow: 'lightBoxGlow',
-  //   '&:read-only': {
-  //     opacity: 0.5,
-  //   },
-  //   '&:focus::placeholder': {
-  //     color: 'transparent',
-  //   },
-  //   '&::placeholder': {
-  //     color: 'inherit',
-  //   },
-  // },
-  // },
-  text: {
-    heading: {
-      fontWeight: 'heading',
-    },
-  },
-  breakpoints: ['768px', '1024px', '1440px'],
+  // shadows: {},
+  // grids: {},
+  // forms: {},
+  // badges: {},
   styles: {
-    a: {
-      color: 'currentColor',
-      transition: 'base',
-      textDecoration: 'none',
-      '@media (hover)': {
-        '&:hover': {
-          color: 'primary',
-        },
-      },
+    h1: {
+      variant: 'text.heading',
+      fontSize: [6, null, 7],
+    },
+    h2: {
+      variant: 'text.heading',
+      fontSize: [5, null, 6],
+    },
+    h3: {
+      fontSize: [4, null, 5],
+    },
+    h4: {
+      fontSize: [2, null, 3],
+    },
+    h5: {
+      fontSize: [1, null, 2],
+    },
+    h6: {
+      fontSize: [0, null, 1],
     },
     root: {
-      fontFamily: 'body',
-      fontWeight: 'body',
-      lineHeight: 'body',
-      bg: 'background',
-      color: 'body',
+      body: {
+        fontFamily: 'body',
+        fontWeight: 'body',
+        lineHeight: 'body',
+        bg: 'background',
+        color: 'body',
+      },
       '&, body, #__next': {
         height: '100%',
       },
