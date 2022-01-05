@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.0.0 (2022-01-05)
+
+
+### Features
+
+* ✨ add server side GraphQL integration ([2e50056](https://www.github.com/judewang/next-graphql/commit/2e50056038872a4fe777ca63accf82697f924714))
+* ✨ enhance SEO integration ([94a09fb](https://www.github.com/judewang/next-graphql/commit/94a09fbdc108fce86da49e405f0ea5ad59d6ef6c))
+* ✨ revise default theme config ([5de5165](https://www.github.com/judewang/next-graphql/commit/5de51652025c6da769cd55c2aa9e753d2872767c))
+* ⬆️ upgrade Theme UI ([efe83ab](https://www.github.com/judewang/next-graphql/commit/efe83abb24598805fb8108fb9e75d144f1ad5d2c))
+* 🏷️ add GraphQL error type ([1f8ec22](https://www.github.com/judewang/next-graphql/commit/1f8ec221cad785fd2d108176e9be5f91bdbc2bda))
+* 🔥 remove Firebase from dependencies ([9dd6ba3](https://www.github.com/judewang/next-graphql/commit/9dd6ba392e0d7aa7e11975fbdb4de1c11f436702))
+
 ## 1.0.0 (2021-11-02)
 
 
