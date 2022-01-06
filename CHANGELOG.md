@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.0.1](https://www.github.com/judewang/next-graphql/compare/v1.0.0...v1.0.1) (2022-01-06)
+
+
+### Bug Fixes
+
+* 🐛 fix default graphql codegen issue ([b831620](https://www.github.com/judewang/next-graphql/commit/b8316202c4cb1d0f2e13a3e95422f34e249eb3fc))
+
 ## 1.0.0 (2022-01-05)
 
 
