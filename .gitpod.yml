@@ -18,6 +18,7 @@ vscode:
     - lokalise.i18n-ally
     - tabnine.tabnine-vscode
     - sonarsource.sonarlint-vscode
+    - graphql.vscode-graphql
 
 ports:
   - port: 3000
